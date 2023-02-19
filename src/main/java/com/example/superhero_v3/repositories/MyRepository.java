@@ -19,6 +19,7 @@ public class MyRepository {
     }
 
     public Superhero getSuperhero(String name) {
+
         for (Superhero hero : superheroes) {
             if (hero.getName().toLowerCase().contains(name.toLowerCase().trim())) {
                 return hero;
@@ -32,6 +33,17 @@ public class MyRepository {
         Superhero hero = new Superhero(name, superpower, human, introYear, strengthPoint);
         superheroes.add(hero);
         return hero;
+    }
+
+    public Superhero deleteSuperhero(String name) {
+
+        for (Superhero hero : superheroes) {
+            if (hero.getName().toLowerCase().contains(name.toLowerCase().trim())) {
+                superheroes.remove(hero);
+            }
+            return hero;
+        }
+        return null;
     }
 
 

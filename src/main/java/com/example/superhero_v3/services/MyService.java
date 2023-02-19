@@ -27,4 +27,8 @@ public class MyService {
         return myRepository.createSuperhero(name, superpower, human, introYear, strengthPoint);
     }
 
+    public Superhero deleteSuperhero(String name) {
+        return myRepository.deleteSuperhero(name);
+    }
+
 }

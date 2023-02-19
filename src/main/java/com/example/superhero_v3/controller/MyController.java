@@ -37,6 +37,12 @@ public class MyController {
         return new ResponseEntity<>(createSuperhero, HttpStatus.OK);
     }
 
+    @DeleteMapping(path = "hero/delete/{name}")
+    public ResponseEntity<Superhero> deleteSuperhero(@PathVariable String name) {
+        Superhero deleteSuperhero = myService.deleteSuperhero(name);
+        return new ResponseEntity<>(deleteSuperhero, HttpStatus.OK);
+    }
+
 
 }
 
