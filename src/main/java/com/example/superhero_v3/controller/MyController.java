@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -26,7 +28,11 @@ public class MyController {
         return new ResponseEntity<>(superheroesList, HttpStatus.OK);
     }
 
-    public
+    @PostMapping(path = "hero/create")
+    public ResponseEntity<Superhero> createSuperhero(@RequestBody Superhero superhero) {
+        Superhero createSuperhero = myService.createSuperhero(superhero.getName(), superhero.getSuperpower(), superhero.isHuman(), superhero.getIntroYear(), superhero.getStrengthPoint());
+        return new ResponseEntity<>(createSuperhero, HttpStatus.OK);
+    }
 
 
 }

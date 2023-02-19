@@ -19,8 +19,12 @@ public class MyService {
         return myRepository.getSuperheroes();
     }
 
-    public List<Superhero> getSuperhero(String name) {
+    public Superhero getSuperhero(String name) {
         return myRepository.getSuperhero(name);
+    }
+
+    public Superhero createSuperhero(String name, String superpower, boolean human, int introYear, double strengthPoint) {
+        return myRepository.createSuperhero(name, superpower, human, introYear, strengthPoint);
     }
 
 }

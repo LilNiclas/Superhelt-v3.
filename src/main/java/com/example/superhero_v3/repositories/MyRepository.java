@@ -18,17 +18,21 @@ public class MyRepository {
         return superheroes;
     }
 
-    public List<Superhero> getSuperhero(String name) {
-            List<Superhero> searchResult = new ArrayList<>();
-
-            for (Superhero hero : superheroes) {
-                if (hero.getName().toLowerCase().contains(name.toLowerCase().trim())) {
-                    searchResult.add(hero);
-                }
+    public Superhero getSuperhero(String name) {
+        for (Superhero hero : superheroes) {
+            if (hero.getName().toLowerCase().contains(name.toLowerCase().trim())) {
+                return hero;
             }
-            return searchResult;
         }
+        return null;
+    }
 
+    public Superhero createSuperhero(String name, String superpower, boolean human, int introYear, double strengthPoint) {
+
+        Superhero hero = new Superhero(name, superpower, human, introYear, strengthPoint);
+        superheroes.add(hero);
+        return hero;
+    }
 
 
 }
