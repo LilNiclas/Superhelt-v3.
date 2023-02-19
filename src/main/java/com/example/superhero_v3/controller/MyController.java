@@ -5,10 +5,7 @@ import com.example.superhero_v3.services.MyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,13 +19,19 @@ public class MyController {
         this.myService = myService;
     }
 
-    @GetMapping(path = "heroes")     //localhost:8080/kea/heroes
+    @GetMapping(path = "superheroes")     //localhost:8080/kea/superheroes
     public ResponseEntity<List<Superhero>> getSuperheroes() {
         List superheroesList = myService.getSuperheroes();
         return new ResponseEntity<>(superheroesList, HttpStatus.OK);
     }
 
-    @PostMapping(path = "hero/create")
+    @GetMapping(path = "superhero/{name}")      //localhost:8080/kea/superhero/{name}
+    public ResponseEntity<Superhero> getSuperhero(@PathVariable String name) {
+        Superhero getSuperhero = myService.getSuperhero(name);
+        return new ResponseEntity<>(getSuperhero, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "hero/create")      //localhost:8080/kea/hero/create
     public ResponseEntity<Superhero> createSuperhero(@RequestBody Superhero superhero) {
         Superhero createSuperhero = myService.createSuperhero(superhero.getName(), superhero.getSuperpower(), superhero.isHuman(), superhero.getIntroYear(), superhero.getStrengthPoint());
         return new ResponseEntity<>(createSuperhero, HttpStatus.OK);
