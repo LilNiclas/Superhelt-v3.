@@ -19,8 +19,8 @@ public class MyService {
         return myRepository.getSuperheroes();
     }
 
-    public Superhero getSuperhero(String name) {
-        return myRepository.getSuperhero(name);
+    public Superhero searchSuperhero(String name) {
+        return myRepository.searchSuperhero(name);
     }
 
     public Superhero createSuperhero(String name, String superpower, boolean human, int introYear, double strengthPoint) {
@@ -29,6 +29,11 @@ public class MyService {
 
     public Superhero deleteSuperhero(String name) {
         return myRepository.deleteSuperhero(name);
+    }
+
+    public Superhero editSuperhero(Superhero superhero) {
+        Superhero returnSuperhero = myRepository.editSuperhero(superhero);
+        return returnSuperhero;
     }
 
 }

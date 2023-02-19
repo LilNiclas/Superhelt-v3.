@@ -5,14 +5,14 @@ public class Superhero {
     private String superpower;
     private boolean human;
     private int introYear;
-    private double strengthPoint;
+    private double strengthPoints;
 
-    public Superhero(String name, String superPower, boolean human, int introYear, double strengthPoint) {
+    public Superhero(String name, String superPower, boolean human, int introYear, double strengthPoints) {
         this.name = name;
         this.superpower = superPower;
         this.human = human;
         this.introYear = introYear;
-        this.strengthPoint = strengthPoint;
+        this.strengthPoints = strengthPoints;
     }
 
     public String getName() {
@@ -43,16 +43,16 @@ public class Superhero {
         this.introYear = introYear;
     }
 
-    public double getStrengthPoint() {
-        return strengthPoint;
+    public double getStrengthPoints() {
+        return strengthPoints;
     }
-    public void setStrengthPoint(double strengthPoint) {
-        this.strengthPoint = strengthPoint;
+    public void setStrengthPoints(double strengthPoints) {
+        this.strengthPoints = strengthPoints;
     }
 
     public String toString() {
         return ("Name: " + name + "\n" + "Superpower: " + superpower + "\n" + "Human: " + human
-                + "\n" + "Introduction year: " + introYear + "\n" + "Strength points: " + strengthPoint + " \n ");
+                + "\n" + "Introduction year: " + introYear + "\n" + "Strength points: " + strengthPoints + " \n ");
     }
 
 }

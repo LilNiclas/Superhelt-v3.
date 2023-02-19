@@ -26,21 +26,27 @@ public class MyController {
     }
 
     @GetMapping(path = "superhero/{name}")      //localhost:8080/kea/superhero/{name}
-    public ResponseEntity<Superhero> getSuperhero(@PathVariable String name) {
-        Superhero getSuperhero = myService.getSuperhero(name);
-        return new ResponseEntity<>(getSuperhero, HttpStatus.OK);
+    public ResponseEntity<Superhero> searchSuperhero(@PathVariable String name) {
+        Superhero searchSuperhero = myService.searchSuperhero(name);
+        return new ResponseEntity<>(searchSuperhero, HttpStatus.OK);
     }
 
     @PostMapping(path = "hero/create")      //localhost:8080/kea/hero/create
     public ResponseEntity<Superhero> createSuperhero(@RequestBody Superhero superhero) {
-        Superhero createSuperhero = myService.createSuperhero(superhero.getName(), superhero.getSuperpower(), superhero.isHuman(), superhero.getIntroYear(), superhero.getStrengthPoint());
+        Superhero createSuperhero = myService.createSuperhero(superhero.getName(), superhero.getSuperpower(), superhero.isHuman(), superhero.getIntroYear(), superhero.getStrengthPoints());
         return new ResponseEntity<>(createSuperhero, HttpStatus.OK);
     }
 
-    @DeleteMapping(path = "hero/delete/{name}")
+    @DeleteMapping(path = "hero/delete/{name}")     //localhost:8080/kea/hero/delete/{name}
     public ResponseEntity<Superhero> deleteSuperhero(@PathVariable String name) {
         Superhero deleteSuperhero = myService.deleteSuperhero(name);
         return new ResponseEntity<>(deleteSuperhero, HttpStatus.OK);
+    }
+
+    @PutMapping(path = "hero/edit")     //localhost:8080/kea/hero/edit
+    public ResponseEntity<Superhero> editSuperhero(@RequestBody Superhero superhero) {
+        Superhero editSuperhero = myService.editSuperhero(superhero);
+        return new ResponseEntity<>(editSuperhero, HttpStatus.OK);
     }
 
 

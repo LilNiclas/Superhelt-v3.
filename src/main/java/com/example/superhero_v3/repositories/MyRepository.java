@@ -18,14 +18,14 @@ public class MyRepository {
         return superheroes;
     }
 
-    public Superhero getSuperhero(String name) {
+    public Superhero searchSuperhero(String name) {
 
         for (Superhero hero : superheroes) {
             if (hero.getName().toLowerCase().contains(name.toLowerCase().trim())) {
                 return hero;
             }
         }
-        return null;
+        return null; //Nothing happened
     }
 
     public Superhero createSuperhero(String name, String superpower, boolean human, int introYear, double strengthPoint) {
@@ -43,7 +43,31 @@ public class MyRepository {
             }
             return hero;
         }
-        return null;
+        return null; //Nothing happened
+    }
+
+    public Superhero editSuperhero(Superhero superhero) {
+        for (Superhero hero : superheroes) {
+            if (hero.getName().equals(superhero.getName())) {
+
+                String newName = superhero.getName();
+                hero.setName(newName);
+
+                String newSuperpower = superhero.getSuperpower();
+                hero.setSuperpower(newSuperpower);
+
+                boolean newIsHuman = superhero.isHuman();
+                hero.setHuman(newIsHuman);
+
+                int newIntroYear = superhero.getIntroYear();
+                hero.setIntroYear(newIntroYear);
+
+                double newStrenghtPoints = superhero.getStrengthPoints();
+                hero.setStrengthPoints(newStrenghtPoints);
+            }
+            return hero;
+        }
+        return null; //Nothing happened
     }
 
 
